@@ -1,0 +1,2 @@
+depend(function(){function c(a){this.view=void 0;this.getValue=function(){return a.innerHTML};this.setValue=function(b){a.innerHTML=b;return this};this.for=function(){return[a.getAttribute("data-for")]};this.parent=function(b){this.view=b;return this};this.refresh=function(){a.innerHTML=this.view.get(this.for()[0])}}return{HTMLAdapter:c,find:function(a){return"input"!==a.tagName.toLowerCase()&&"textarea"!==a.tagName.toLowerCase()&&"select"!==a.tagName.toLowerCase()&&a.hasAttribute("data-for")?[new c(a)]:
+[]}}});

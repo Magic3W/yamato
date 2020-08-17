@@ -1,9 +1,9 @@
-<?php namespace m3w;
+<?php namespace auth;
 
 /* 
  * The MIT License
  *
- * Copyright 2020 César de la Cal Bretschneider <cesar@magic3w.com>.
+ * Copyright 2017 César de la Cal Bretschneider <cesar@magic3w.com>.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,46 @@
  * THE SOFTWARE.
  */
 
-class IOException extends \spitfire\exceptions\PublicException
+class App
 {
+	
+	private $id;
+	
+	private $secret;
+	
+	private $name;
+	
+	public function __construct($id, $secret, $name) {
+		$this->id = $id;
+		$this->secret = $secret;
+		$this->name = $name;
+	}
+	
+	public function getId() {
+		return $this->id;
+	}
+	
+	public function getSecret() {
+		return $this->secret;
+	}
+	
+	public function getName() {
+		return $this->name;
+	}
+	
+	public function setId($id) {
+		$this->id = $id;
+		return $this;
+	}
+	
+	public function setSecret($secret) {
+		$this->secret = $secret;
+		return $this;
+	}
+	
+	public function setName($name) {
+		$this->name = $name;
+		return $this;
+	}
 	
 }

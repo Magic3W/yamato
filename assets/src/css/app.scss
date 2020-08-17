@@ -1,0 +1,734 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+	Created on : Nov 16, 2016, 4:02:35 PM
+	Author     : César de la Cal Bretschneider <cesar@magic3w.com>
+*/
+
+$disbled-darken-amount: 30;
+$LinkColor: #25A9F8;
+
+$MobileBreakpoint: 960px;
+
+%clearfix::after {
+	content: '';
+	display: table;
+	height:    1px;
+	clear:    both;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+	background: #FAFAFA;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+a {
+	color: $LinkColor;
+	text-decoration: none;
+}
+
+p {
+	&.secondary {
+		color: #777;
+		
+		&.very {
+			color: #999;
+		}
+	}
+	
+	&.small {
+		font-size: .8rem;
+	}
+}
+
+*[disabled] {
+	pointer-events: none;
+}
+
+.button {
+	background: #3191f1 none repeat scroll 0 0;
+	border: medium none;
+	border-radius: 3px;
+	box-shadow: -2px -2px 1px #3167f1 inset;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 700;
+	padding: 0.5em 1.2em;
+	text-decoration: none;
+	
+	&.follow {
+		/*Follow button specific styles*/
+	}
+	
+	&.unfollow {
+		/*Follow button specific styles*/
+	}
+	
+	&[disabled] {
+		background: #AAAAAA;
+		box-shadow: -2px -2px 1px #888 inset;
+	}
+}
+
+.material {
+	background: #FFF;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	padding: 20px 15px 15px;
+	
+	&.unpadded {
+		padding: 0px;
+	}
+	
+	.padded {
+		padding: 15px 10px 10px;
+	}
+}
+
+.add-ping {
+	background: #fff;
+	
+	textarea,
+	.textarea {
+		width: 100%;
+		padding: 5px 10px;
+		border: none;
+		font-size: 10px;
+		max-width: 100%;
+		min-width: 100%;
+		resize: none;
+		
+		&::-webkit-placeholder {
+			color: #1f567d;
+		}
+		
+		&::-moz-placeholder {
+			color: #1f567d;
+		}
+	}
+	
+	input[type=submit] {
+		@extend .button;
+	}
+}
+
+.separator {
+	border-top: solid 1px #c0d9eb;
+}
+
+.badge {
+	background: #F00;
+	color:      #FFF;
+	border-radius: 1em;
+	padding:     0 .5em;
+	font-weight: bold;
+	
+	&[data-ping-amt='0'],
+	&[data-ping-amt=''] {
+		background: #BBB;
+	}
+}
+
+.notification-indicator {
+	display: inline-block;
+	position: relative;
+	
+	.badge {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		padding: 0;
+		font-size: 0;
+		border: solid 2px #eef1f6;
+		background: #F00;
+			
+		&[data-ping-amt="0"] {
+			background: #5f6c75;
+		}
+	}
+	
+	&.static .badge {
+		position: static;
+	}
+	
+	&.right .badge {
+		right: 0;
+	}
+}
+
+.user-card {
+	.banner {
+		overflow: hidden;
+		background: #3289c7;
+		height: 60px;
+		
+		img {
+			width: 100%;
+			height: auto;
+			background: #FFF;
+			vertical-align: middle;
+		}
+	}
+	
+	.user-info {
+		display: inline-block;
+		margin-left: 5px;
+	}
+	
+	.user-name {
+		display: block;
+		color: #000;
+		font-weight: bold;
+	}
+	
+	.user-bio {
+		font-size: .8em;
+		color: #555;
+	}
+	
+	.avatar {
+		border-radius: 5px;
+		border: solid 2px #FFF;
+		width: 68px;
+		vertical-align: bottom;
+	}
+}
+
+.home-billboard {
+	
+	h1, p {
+		display: inline-block;
+		padding: 4px 10px;
+		margin: 0;
+		color: #555;
+		vertical-align: bottom;
+		background: rgba(255, 255, 255, .6);
+		box-shadow: 5px -5px 0 #777;
+		z-index: 0;
+	}
+	
+	h1 {
+		padding: 4px 30px 4px 10px;
+		z-index: 1;
+	}
+}
+
+.profile-resume {
+	.avatar {
+		width: 100%;
+		border-radius: 10px;
+	}
+	
+	.bio,
+	.follow-count,
+	.liked-count, 
+	.follower-count,
+	.ping-count {
+		display: block;
+		color: #555;
+		font-size: .8em;
+	}
+	
+	.follow-count,
+	.follower-count,
+	.liked-count, 
+	.ping-count  {
+		text-align: right;
+	}
+	
+	.user-name {
+		display: block;
+		color: #000;
+		font-weight: bold;
+	}
+	
+}
+
+.source-ping {
+	padding: 15px 10px 10px;
+	border-bottom: solid 1px #DDD;
+	background: #F6F6F6;
+	color: #444;
+	position: relative;
+	font-size: .95em;
+}
+
+.media-cover {
+	background: #EEE;
+	border-radius: 3px;
+	font-size: 12px;
+	text-align: center;
+	padding: 50px 0;
+	font-style: italic;
+	cursor: pointer;
+}
+
+.pagination {
+	list-style: none;
+	text-align: center;
+	
+	li {
+		display: inline-block;
+		font-weight: bold;
+		
+		a {
+			display: inline-block;
+			padding: 10px;
+		}
+		
+		&.disabled, &.disabled a {
+			color: #AAA;
+		}
+		
+		&.active {
+			border-bottom: solid 1px #777;
+		}
+	}
+}
+
+.ping-contextual-link {
+	color: #666;
+	margin: 0 8px;
+	line-height: 14px;
+	
+	&:first-child {
+		margin-left: 0;
+	}
+	
+	&:hover {
+		color: #333;
+	}
+	
+	&.liked {
+		color: #A33;
+	}
+	
+	span {
+		vertical-align: middle;
+		font-size: .8rem;
+		font-weight: bold;
+	}
+	
+	.im {
+		vertical-align: -.05rem;
+		font-size: .7rem;
+		line-height: .7rem;
+	}
+}
+
+.delete-link {
+	color: #A33;
+}
+
+#new-ping-content {
+	font-size: 1.05em;
+	color: #3b7080;
+	font-family: inherit;
+	padding: 0;
+	min-height: 50px;
+	max-height: 300px;
+	
+	&::placeholder {
+		font-size: .8em;
+	}
+}
+
+.media-preview {
+	overflow: hidden;
+	border-radius: 10px;
+	
+	img {
+		vertical-align: top;
+		border-bottom: solid 1px #FFF;
+		border-right: solid 1px #FFF;
+		
+	}
+}
+
+#page-banner {
+	max-height: 400px;
+	min-height: 100px;
+	overflow: hidden;
+	
+	border-bottom: solid 1px #777;
+	position: relative;
+	
+	&:after {
+		content: '';
+		position: absolute;
+		top : 0;
+		left : 0;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), transparent 5%, transparent 95%, rgba(0, 0, 0, .2));
+	}
+	
+	
+	img {
+		max-width: 100%;
+		width: 2000px;
+		margin: 0 auto;
+		display: block;
+		vertical-align: middle;
+	}
+}
+
+.row .span {
+	margin: 0 !important;
+}
+
+.raffle {
+	position: relative;
+	display:     block;
+
+	.sample {
+		width: 100%;
+		height: auto;
+	}
+
+	.magnifier {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		width: 48px;
+		height: 48px;
+		opacity: .5;
+		will-change: opacity;
+		transition: opacity .2s linear;
+	}
+
+	&:hover .magnifier { opacity: 1 }
+	
+	@extend %clearfix;
+}
+
+.upload-preview {
+		width: 100%;
+		cursor: pointer;
+	}
+	
+.upload-slate {
+	padding: 50px 100px;
+	text-align: center;
+	background: #EEE;
+	border: dashed 5px #CCC;
+	color: #333;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.banner-container {
+	position: relative;
+	overflow: hidden;
+	
+	.profile-info {
+		position: absolute;
+		bottom: 0px;
+		padding-bottom: 5px;
+		width: 100%;
+		background-image: linear-gradient(0deg, rgba(0, 0, 0, .3) 50px, transparent 51px);
+	}
+	
+	.avatar {
+		width: 128px;
+		height: 128px;
+		bottom: 5px;
+		border-radius: 10px;
+		box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+		background: #FFF;
+		vertical-align: bottom;
+	}
+	
+	.username {
+		font-size: 20px;
+		padding-bottom: 10px;
+		font-weight: bold;
+		display: inline-block;
+		color: #FFF;
+		
+		small {
+			color: #CCC;
+		}
+	}
+}
+
+.user-profile-bar {
+	position: relative;
+	border-bottom: solid 1px #BBB;
+	background: #FFF;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+	
+	* {
+		vertical-align: middle;
+	}
+	
+	.tab {
+		height: 50px;
+		padding: 15px 0 10px;
+		display: inline-block;
+		
+		&.active {
+			font-weight: bold;
+			border-bottom: solid 2px #25A9F8;
+		}
+	}
+}
+
+/* 
+	* These styles were originally homepage only. But they're now commonly used 
+	* across the system and would require refactoring. (TODO)
+	*/
+.raffle-card {
+	background: #fff;
+	border-radius: 3px;
+	border: solid 1px #BBB;
+	overflow-x: hidden;
+	position: relative;
+
+	margin:       6px 6px;
+	padding:            0;
+	display: inline-block;
+	color: #282828;
+	width: 258px;
+	vertical-align: top;
+
+	text-align: left;
+	
+	.promoted {
+		background: #f7ed2a;
+		color: #FFF;
+		padding: 2px 3px;
+		text-shadow: 1px 1px 0px #b5ae22;
+		border-radius: 0 0 0 2px;
+		font-size: .7em;
+		
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	
+	.sale {
+		background: #bd0f0f;
+		color: #FFF;
+		padding: 2px 5px;
+		text-shadow: 1px 1px 0px #940a0a;
+		border-radius: 0 0 2px 0;
+		font-size: .7em;
+		font-weight: bold;
+		text-align: center;
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: .3s ease padding;
+		
+		&:after {
+			margin-left: -35px;
+			opacity: 0;
+			transition: .3s linear margin-left, .3s linear opacity;
+			text-transform: uppercase;
+			content: ' sale';
+		}
+		
+	}
+	
+	&:hover .sale {
+		padding: 2px 7px;
+
+		&:after {
+			margin-left: 0px;
+			opacity: 1;
+		}
+	}
+
+	.preview {
+		width:           256px;
+		height:          256px;
+		vertical-align: middle;
+	}
+
+	.title {
+		padding: 3px 5px 3px;
+		font-weight: bold;
+		display: block;
+		font-size: 14px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		height: 28px;
+	}
+	
+	.timer, .bid, .comment-count, .like-count {
+		position: absolute;
+		bottom:  10px;
+		display: block;
+		color: #777;
+		font-size: 12px;
+	}
+	
+	.inner {
+		padding-bottom: 20px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: rgba( 255, 255, 255, .8);
+	}
+
+	.timer {
+		right: 5px;
+	}
+
+	.bid {
+		left: 5px;
+	}
+	
+	.comment-count {
+		left:  50px;
+			
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			background: url('../img/speech-bubble-dark.png') no-repeat;
+			background-size: 8px 8px;
+			margin-right: 2px;
+		}
+	}
+	
+	.like-count {
+		left: 80px;
+		
+		&:before {
+			content: "\2665 \FE0E";
+		}
+	}
+}
+
+/* Content Rating related */
+.rating-0 {
+	color: #090;
+}
+.rating-1 {
+	color: #009;
+}
+.rating-2 {
+	color: #900;
+}
+.cr {
+	&.rating-0:before {
+		content: "S";
+	}
+	&.rating-1:before {
+		content: "Q";
+	}
+	&.rating-2:before {
+		content: "E";
+	}
+}
+
+.report-link {
+	color: #555;
+	font-size: .8em;
+}
+
+.user-icon {
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: middle;
+	border: solid 2px #FFF;
+	
+	&.extra-small {
+		width:  24px;
+		height: 24px;
+	}
+	
+	&.small {
+		width:  32px;
+		height: 32px;
+	}
+	
+	&.medium {
+		width:  64px;
+		height: 64px;
+	}
+	
+	&.big {
+		width:  128px;
+		height: 128px;
+	}
+}
+
+.like-toggle {
+	color: #777;
+	font-weight: bold;
+	font-size:  .8em;
+	vertical-align: middle;
+	padding: 3px 10px 3px 5px;;
+	border: solid 1px #777;
+	border-radius: 3px;
+
+	&:before {
+		font-size: 1.2em;
+		margin-right: 3px;
+		content: "\2665 \FE0E";
+	}
+}
+
+.like-toggle.lit {
+	color: #078736;
+	border: solid 1px #078736;
+}
+
+.user-name {
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 1.2em;
+	color: #333;
+}
+
+.countdown {
+	font-size:   20px;
+	line-height: 20px;
+	text-align: right;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	
+	background: #FFF;
+	color: #555;
+	text-align: center;
+	padding: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	border-top: solid 1px #999;
+}
+
+@media all and (min-width: $MobileBreakpoint) {
+	.mobile-only { display: none !important; }
+}
+
+@media all and (max-width: $MobileBreakpoint) {
+	.desktop-only { display: none !important; }
+}
+
+@import '_colors.scss';
+@import '_/_.scss';

@@ -1,10 +1,8 @@
-<html>
-	<head>
-		<title><?= $message ?></title>
-	</head>
-	<body>
-		<div class="wrapper">
-			<h1><?= $message ?></h1>
+<div class="row l1">
+	<div class="span l1">
+		<div class="material">
+			<h1>Welcome to Yamato!</h1>
+			<p>Yamato is your personal postman! He delivers all the incoming emails to the desired mailbox.</p>
 		</div>
-	</body>
-</html>
+	</div>
+</div>

@@ -1,0 +1,1 @@
+depend(function(){var f=function(a,b,c,d){return function(e){return Math.pow(1-e,3)*a+3*Math.pow(1-e,2)*e*b+3*(1-e)*Math.pow(e,2)*c+Math.pow(e,3)*d}},g=function(a,b){this.x=a;this.y=b},h=function(a,b,c,d){this.x=f(a.x,b.x,c.x,d.x);this.y=f(a.y,b.y,c.y,d.y)};return{point:function(a,b){return new g(a,b)},bezier:function(a,b,c,d){return new h(a,b,c,d)}}});

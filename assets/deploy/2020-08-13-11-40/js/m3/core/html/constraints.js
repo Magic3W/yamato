@@ -1,0 +1,1 @@
+depend([],function(){return function(a){var b=0,c=0,e=a.clientWidth,d=a.clientHeight;do b+=a.offsetTop,c+=a.offsetLeft;while(null!==(a=a.offsetParent));return{top:b,bottom:document.body.clientHeight-b-d,left:c,width:e,height:d}}});
