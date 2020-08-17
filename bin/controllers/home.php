@@ -8,5 +8,8 @@
 class HomeController extends BaseController
 {
 	public function index() {
+		if ($this->user) {
+			return $this->response->setBody('Redirecting...')->getHeaders()->redirect(url('redirection', 'create'));
+		}
 	}
 }

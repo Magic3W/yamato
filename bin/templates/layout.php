@@ -89,15 +89,6 @@
 							<img src="<?= $authUser->avatar ?>" width="32" height="32" style="border-radius: 50%; vertical-align: middle">
 						</span>
 					</a>
-					<div class="dropdown right-bound unpadded" data-dropdown="app-drawer">
-						<div class="app-drawer" id="app-drawer">
-							<div class="navigation vertical">
-								<a class="navigation-item" href="<?= url('user', $authUser->username) ?>">My Profile</a>
-								<a class="navigation-item" href="<?= url('settings', 'display') ?>">Settings</a>
-								<a class="navigation-item" href="<?= url('account', 'logout') ?>">Logout</a>
-							</div>
-						</div>
-					</div>
 				</div>
 			<?php else : ?>
 				<a class="menu-item" href="<?= url('account', 'login') ?>">Login</a>
