@@ -30,10 +30,10 @@
 								<?= __(substr($target->to, 0, 6)) . str_repeat('*', strlen($target->to) - 12) . __(substr($target->to, -6)) ?>
 							</div>
 							<div class="span l1">
-								<?= date('Y-m-d - H:m', $target->since) ?>
+								<?= date('Y-m-d - H:i', $target->since) ?>
 							</div>
 							<div class="span l1 align-right">
-								<?= date('Y-m-d - H:m', $target->until) ?>
+								<?= date('Y-m-d - H:i', $target->until) ?>
 							</div>
 						</div>
 
