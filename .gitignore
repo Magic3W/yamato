@@ -4,3 +4,6 @@ Documentation/*
 *.sublime-project
 *.sublime-workspace
 bin/settings/environments.php
+.sass-cache
+assets/deploy*
+bin/usr/*
