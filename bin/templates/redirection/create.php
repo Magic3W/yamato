@@ -22,7 +22,7 @@
 							<div class="span l1">
 								<label>Since</label>
 								<select class="frm-ctrl" name="targets[0][since]">
-									<?php foreach (['Jetzt' => time(), 'In 20 Minuten' => time() + 1200] as $readable => $time) : ?>
+									<?php foreach (['Jetzt' => time(), 'In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600] as $readable => $time) : ?>
 										<option value="<?= $time ?>"><?= __($readable) ?></option>
 									<?php endforeach; ?>
 								</select>
@@ -30,7 +30,7 @@
 							<div class="span l1">
 								<label>To</label>
 								<select class="frm-ctrl" name="targets[0][until]">
-									<?php foreach (['In 20 Minuten' => time() + 1200, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
+									<?php foreach (['In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
 										<option value="<?= $time ?>"><?= __($readable) ?></option>
 									<?php endforeach; ?>
 								</select>
@@ -47,7 +47,7 @@
 							<div class="span l1">
 								<label>Since</label>
 								<select class="frm-ctrl" name="targets[1][since]">
-									<?php foreach (['Jetzt' => time(), 'In 20 Minuten' => time() + 1200] as $readable => $time) : ?>
+									<?php foreach (['Jetzt' => time(), 'In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600] as $readable => $time) : ?>
 										<option value="<?= $time ?>"><?= __($readable) ?></option>
 									<?php endforeach; ?>
 								</select>
@@ -55,7 +55,7 @@
 							<div class="span l1">
 								<label>To</label>
 								<select class="frm-ctrl" name="targets[1][until]">
-									<?php foreach (['In 20 Minuten' => time() + 1200, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
+									<?php foreach (['In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
 										<option value="<?= $time ?>"><?= __($readable) ?></option>
 									<?php endforeach; ?>
 								</select>
@@ -74,7 +74,7 @@
 									<div class="span l1">
 										<label>Since</label>
 										<select class="frm-ctrl" data-lysine-name="targets[{{id}}][since]">
-											<?php foreach (['Jetzt' => time(), 'In 20 Minuten' => time() + 1200] as $readable => $time) : ?>
+											<?php foreach (['Jetzt' => time(), 'In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600] as $readable => $time) : ?>
 												<option value="<?= $time ?>"><?= __($readable) ?></option>
 											<?php endforeach; ?>
 										</select>
@@ -82,7 +82,7 @@
 									<div class="span l1">
 										<label>To</label>
 										<select class="frm-ctrl" data-lysine-name="targets[{{id}}][until]">
-											<?php foreach (['In 20 Minuten' => time() + 1200, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
+											<?php foreach (['In 5 Minuten' => time() + 300, 'In 20 Minuten' => time() + 1200, 'In 1 Stunde' => time() + 3600, 'In 1 Jahr' => time() + 86400 * 365] as $readable => $time) : ?>
 												<option value="<?= $time ?>"><?= __($readable) ?></option>
 											<?php endforeach; ?>
 										</select>
