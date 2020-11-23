@@ -1,3 +1,5 @@
+<?php if (isset($redirect) && $redirect) { $this->response->setBody('Redirect')->getHeaders()->redirect(url('redirection', 'show', $redirect->_id)); return; } ?>
+
 <div class="row l1">
 	<div class="span l1">
 

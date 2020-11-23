@@ -32,12 +32,12 @@ class RedirectionController extends BaseController
 				$dbtarget = db()->table('target')->newRecord();
 				$dbtarget->redirection = $redirect;
 				$dbtarget->to = $target['email'];
-				$dbtarget->since = $target['since'];
-				$dbtarget->until = $target['until'];
+				$dbtarget->since = Strings::startsWith($target['since'], '+')? time() + substr($target['since'], 1) : $target['since'];
+				$dbtarget->until = Strings::startsWith($target['until'], '+')? time() + substr($target['until'], 1) : $target['until'];
 				$dbtarget->store();
 			}
 
-			$this->response->setBody('Redirect')->getHeaders()->redirect(url('redirection', 'show', $redirect->_id));
+			$this->view->set('redirect', $redirect);
 			return;
 		}
 		catch (HTTPMethodException $e) {
