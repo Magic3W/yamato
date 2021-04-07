@@ -29,6 +29,15 @@ class RedirectionController extends BaseController
 			$redirect->store();
 
 			foreach ($_POST['targets'] as $target) {
+				
+				/**
+				 * We do not accept stuff that does not validate as email. This
+				 * way we make sure we can send to all the recipients of a redirection.
+				 */
+				if (!filter_var($target['email'], FILTER_VALIDATE_EMAIL)) {
+					continue;
+				}
+				
 				$dbtarget = db()->table('target')->newRecord();
 				$dbtarget->redirection = $redirect;
 				$dbtarget->to = $target['email'];
